@@ -27,7 +27,7 @@ public class Persona {
     }
 
     public int getEta() {
-        return Period.between(LocalDate.now(), dataDiNascita).getYears();
+        return Period.between(dataDiNascita, LocalDate.now()).getYears();
     }
 
     @Override

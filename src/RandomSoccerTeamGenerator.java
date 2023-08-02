@@ -1,45 +1,42 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 public class RandomSoccerTeamGenerator {
 
-    private static final List<String> NOMI = new ArrayList<>(
-            Arrays.asList(
-                    "Alessandro", "Federico", "Marco", "Andrea",
-                    "Francesco", "Simone", "Luca", "Davide",
-                    "Matteo", "Gabriele", "Giuseppe", "Antonio",
-                    "Giovanni", "Roberto", "Stefano", "Riccardo",
-                    "Alberto", "Filippo", "Daniele", "Fabio"
-            )
+    /*Fields*/
+    private static final List<String> NOMI = List.of(
+            "Alessandro", "Federico", "Marco", "Andrea",
+            "Francesco", "Simone", "Luca", "Davide",
+            "Matteo", "Gabriele", "Giuseppe", "Antonio",
+            "Giovanni", "Roberto", "Stefano", "Riccardo",
+            "Alberto", "Filippo", "Daniele", "Fabio"
+
     );
 
 
-    private static final List<String> RUOLI = new ArrayList<>(
-            Arrays.asList(
-                    "Portiere",
-                    "Difensore",
-                    "Centrocampista",
-                    "Attaccante"
-            )
+    private static final List<String> RUOLI = List.of(
+            "Portiere",
+            "Difensore",
+            "Centrocampista",
+            "Attaccante"
     );
 
-    private static final List<String> COGNOMI = new ArrayList<String>(
-            Arrays.asList(
-                    "Rossi", "Bianchi", "Neri", "Verdi",
-                    "Russo", "Ferrari", "Esposito", "Romano",
-                    "Ricci", "Lombardi", "Moretti", "Greco",
-                    "Conti", "Marino", "Giordano", "Lombardo",
-                    "Mancini", "Costa", "Rizzo", "Longo"
-            )
+    private static final List<String> COGNOMI = List.of(
+            "Rossi", "Bianchi", "Neri", "Verdi",
+            "Russo", "Ferrari", "Esposito", "Romano",
+            "Ricci", "Lombardi", "Moretti", "Greco",
+            "Conti", "Marino", "Giordano", "Lombardo",
+            "Mancini", "Costa", "Rizzo", "Longo"
     );
 
+    /*Public Methods*/
     public static Squadra generaSquadraRandom(String strategia) {
         return new Squadra(giocatoriRandom(strategia), allenatoreRandom(strategia));
     }
 
+    /*Private Methods*/
     private static List<Giocatore> giocatoriRandom(String strategia) {
         List<Giocatore> giocatoriRandom = new ArrayList<>();
         String[] strategiaSquadra = strategia.split("-");

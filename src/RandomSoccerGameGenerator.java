@@ -31,20 +31,20 @@ public class RandomSoccerGameGenerator {
             "Mancini", "Costa", "Rizzo", "Longo"
     );
 
+    /*Public Methods*/
     public static Partita generaPartita(String nomeSquadraDiCasa, String nomeSquadraOspite) {
         return new Partita(
-                generaSquadraRandom(nomeSquadraDiCasa,"1-5-3-2"),
-                generaSquadraRandom(nomeSquadraOspite,"1-2-5-3"),
+                generaSquadraRandom(nomeSquadraDiCasa, "1-5-3-2"),
+                generaSquadraRandom(nomeSquadraOspite, "1-2-5-3"),
                 arbitroRandom("Arbitro")
         );
     }
 
-    /*Public Methods*/
+    /*Private Methods*/
     public static Squadra generaSquadraRandom(String nome, String strategia) {
         return new Squadra(nome, giocatoriRandom(strategia), allenatoreRandom(strategia));
     }
 
-    /*Private Methods*/
     private static List<Giocatore> giocatoriRandom(String strategia) {
         List<Giocatore> giocatoriRandom = new ArrayList<>();
         String[] strategiaSquadra = strategia.split("-");

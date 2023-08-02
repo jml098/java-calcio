@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Partita {
     private Squadra squadraDiCasa;
@@ -26,6 +27,31 @@ public class Partita {
 
     public void inizia() {
         iniziata = true;
+    }
+
+    public void simula() {
+        inizia();
+
+        Random random = new Random();
+        for (int i = 0; i < 90; i++) {
+
+            if (random.nextInt(100) < 10) {
+                Giocatore giocatoreCheHaSegnato;
+
+                if (random.nextInt(2) == 1) {
+                    List<Giocatore> giocatoriSquadraDiCasa = getSquadraDiCasa().getGiocatori();
+                    giocatoreCheHaSegnato = giocatoriSquadraDiCasa.get(random.nextInt(giocatoriSquadraDiCasa.size()));
+                } else {
+                    List<Giocatore> giocatoriSquadraOspite = getSquadraOspite().getGiocatori();
+                    giocatoreCheHaSegnato = giocatoriSquadraOspite.get(random.nextInt(giocatoriSquadraOspite.size()));
+                }
+
+
+                goal(giocatoreCheHaSegnato, i);
+            }
+        }
+
+        finisci();
     }
 
     public void finisci() {

@@ -85,8 +85,8 @@ public class Partita {
         String string = "Partita " + squadraDiCasa.getNome() + " - " + squadraOspite.getNome() + "\n" +
                 "Risultato: " + getRisultato() + "\n";
 
-        StringBuilder marcatoriCasa = new StringBuilder(squadraDiCasa.getNome() + ":\n");
-        StringBuilder marcatoriOspite = new StringBuilder(squadraOspite.getNome() + ":\n");
+        StringBuilder marcatoriCasa = new StringBuilder(squadraDiCasa.getNome() +  ":\n");
+        StringBuilder marcatoriOspite = new StringBuilder(squadraOspite.getNome()+  ":\n");
 
 
         for (Goal goal :

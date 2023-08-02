@@ -34,8 +34,8 @@ public class RandomSoccerGameGenerator {
     /*Public Methods*/
     public static Partita generaPartita(String nomeSquadraDiCasa, String nomeSquadraOspite) {
         return new Partita(
-                generaSquadraRandom(nomeSquadraDiCasa, "1-5-3-2"),
-                generaSquadraRandom(nomeSquadraOspite, "1-2-5-3"),
+                generaSquadraRandom(nomeSquadraDiCasa, "1-5-4-1"),
+                generaSquadraRandom(nomeSquadraOspite, "1-3-4-3"),
                 arbitroRandom("Arbitro")
         );
     }

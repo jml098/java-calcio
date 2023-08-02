@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class RandomSoccerTeamGenerator {
+public class RandomSoccerGameGenerator {
 
     /*Fields*/
     private static final List<String> NOMI = List.of(
@@ -31,9 +31,17 @@ public class RandomSoccerTeamGenerator {
             "Mancini", "Costa", "Rizzo", "Longo"
     );
 
+    public static Partita generaPartita(String nomeSquadraDiCasa, String nomeSquadraOspite) {
+        return new Partita(
+                generaSquadraRandom(nomeSquadraDiCasa,"1-5-3-2"),
+                generaSquadraRandom(nomeSquadraOspite,"1-2-5-3"),
+                arbitroRandom("Arbitro")
+        );
+    }
+
     /*Public Methods*/
-    public static Squadra generaSquadraRandom(String strategia) {
-        return new Squadra(giocatoriRandom(strategia), allenatoreRandom(strategia));
+    public static Squadra generaSquadraRandom(String nome, String strategia) {
+        return new Squadra(nome, giocatoriRandom(strategia), allenatoreRandom(strategia));
     }
 
     /*Private Methods*/
@@ -56,6 +64,10 @@ public class RandomSoccerTeamGenerator {
         }
 
         return giocatoriRandom;
+    }
+
+    private static Arbitro arbitroRandom(String ruolo) {
+        return new Arbitro(nomeRandom(), dataRandom(1970, 1990), ruolo);
     }
 
     private static Allenatore allenatoreRandom(String strategia) {

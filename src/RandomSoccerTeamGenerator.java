@@ -37,6 +37,10 @@ public class RandomSoccerTeamGenerator {
     );
 
     public static Squadra generaSquadraRandom(String strategia) {
+        return new Squadra(giocatoriRandom(strategia), allenatoreRandom(strategia));
+    }
+
+    private static List<Giocatore> giocatoriRandom(String strategia) {
         List<Giocatore> giocatoriRandom = new ArrayList<>();
         String[] strategiaSquadra = strategia.split("-");
 
@@ -54,7 +58,7 @@ public class RandomSoccerTeamGenerator {
             }
         }
 
-        return new Squadra(giocatoriRandom, allenatoreRandom(strategia));
+        return giocatoriRandom;
     }
 
     private static Allenatore allenatoreRandom(String strategia) {
@@ -62,15 +66,7 @@ public class RandomSoccerTeamGenerator {
     }
 
     private static Giocatore giocatoreRandom(int ruolo) {
-        Giocatore giocatoreRandom;
-
-        giocatoreRandom = new Giocatore(
-                nomeRandom(),
-                dataRandom(1995, 2002),
-                RUOLI.get(ruolo)
-        );
-
-        return giocatoreRandom;
+        return new Giocatore(nomeRandom(), dataRandom(1995, 2002), RUOLI.get(ruolo));
     }
 
     private static String nomeRandom() {
